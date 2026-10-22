@@ -11,7 +11,7 @@
     <header class="situs-header">
       <div class="kontainer navbar">
         <a class="logo" href="#">Wildan</a>
-        <nav>
+        <nav aria-label="Navigasi utama">
           <ul class="menu">
             <li><a href="#tentang">Tentang</a></li>
             <li><a href="#layanan">Layanan</a></li>
@@ -25,11 +25,11 @@
     <main>
       <section id="tentang">
         <div class="hero">
-          <h2>Tentang Saya</h2>
+          <h1>Tentang Saya</h1>
           <figure>
             <img
               src="./img/tres.jpeg"
-              alt="Foto Nama Peserta"
+              alt="Poster penghargaan siswa SD Unggulan Daar El Dzikir"
               width="160"
               height="160"
             />
@@ -119,62 +119,64 @@
       <section id="tabel">
         <div class="kontainer">
           <h2>Jadwal</h2>
-          <table border="1" cellpadding="10" cellspacing="0">
-            <caption>
-              Jadwal Diklat pekan 1
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Hari</th>
-                <th scope="col">Materi</th>
-                <th scope="col">Jam</th>
-                <th scope="col">Instruktur</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td rowspan="2">Senin</td>
-                <td>Pembukaan</td>
-                <td>08.00 - 10.00</td>
-                <td>John Doe</td>
-              </tr>
-              <tr>
-                <td>instalasi tools</td>
-                <td>10.00 - 17.00</td>
-                <td>Jane Smith</td>
-              </tr>
-              <tr>
-                <td>Selasa</td>
-                <td>HTML Dasar</td>
-                <td>08.00 - 17.00</td>
-                <td>John Doe</td>
-              </tr>
-              <tr>
-                <td>Rabu</td>
-                <td>CSS 3</td>
-                <td>08.00 - 17.00</td>
-                <td>Jane Smith</td>
-              </tr>
-              <tr>
-                <td>Kamis</td>
-                <td>JavaScript Dasar</td>
-                <td>08.00 - 17.00</td>
-                <td>John Doe</td>
-              </tr>
-              <tr>
-                <td>Jumat</td>
-                <td>node js</td>
-                <td>08.00 - 17.00</td>
-                <td>Jane Smith</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2">total jam</td>
-                <td>24 Jp</td>
-              </tr>
-            </tfoot>
-          </table>
+          <div class="tabel-bungkus">
+            <table>
+              <caption>
+                Jadwal Diklat pekan 1
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Hari</th>
+                  <th scope="col">Materi</th>
+                  <th scope="col">Jam</th>
+                  <th scope="col">Instruktur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">Senin</td>
+                  <td>Pembukaan</td>
+                  <td>08.00 - 10.00</td>
+                  <td>John Doe</td>
+                </tr>
+                <tr>
+                  <td>instalasi tools</td>
+                  <td>10.00 - 17.00</td>
+                  <td>Jane Smith</td>
+                </tr>
+                <tr>
+                  <td>Selasa</td>
+                  <td>HTML Dasar</td>
+                  <td>08.00 - 17.00</td>
+                  <td>John Doe</td>
+                </tr>
+                <tr>
+                  <td>Rabu</td>
+                  <td>CSS 3</td>
+                  <td>08.00 - 17.00</td>
+                  <td>Jane Smith</td>
+                </tr>
+                <tr>
+                  <td>Kamis</td>
+                  <td>JavaScript Dasar</td>
+                  <td>08.00 - 17.00</td>
+                  <td>John Doe</td>
+                </tr>
+                <tr>
+                  <td>Jumat</td>
+                  <td>node js</td>
+                  <td>08.00 - 17.00</td>
+                  <td>Jane Smith</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">total jam</td>
+                  <td>24 Jp</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
         </div>
       </section>
       <section id="formulir">

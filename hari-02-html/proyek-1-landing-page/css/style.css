@@ -1,11 +1,25 @@
 /* ===== 1. Variabel ===== */
 :root {
   --warna-utama: #0d6efd;
+  --warna-sekunder: #6610f2;
   --warna-gelap: #1f2937;
   --warna-terang: #f9fafb;
   --warna-abu: #6b7280;
+  --warna-putih: #fff;
+  --warna-batas: #e5e7eb;
+  --warna-input: #d1d5db;
+  --warna-header-tabel: #eef2ff;
+  --warna-baris-tabel: #f3f4f6;
   --radius: 8px;
   --jarak: 1rem;
+  --jarak-mini: 0.25rem;
+  --jarak-kecil: 0.5rem;
+  --jarak-form: 0.6rem;
+  --jarak-navbar: 0.75rem;
+  --jarak-sedang: 1.25rem;
+  --jarak-kartu: 1.5rem;
+  --jarak-footer: 2rem;
+  --jarak-besar: 3rem;
   --lebar-maks: 1100px;
 }
 
@@ -40,6 +54,11 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--warna-utama);
+  outline-offset: 3px;
+}
 
 /* ===== 3. Layout umum ===== */
 .kontainer {
@@ -48,7 +67,7 @@ a:focus {
   padding: 0 var(--jarak);
 }
 section {
-  padding: 3rem 0;
+  padding: var(--jarak-besar) 0;
 }
 h1,
 h2,
@@ -64,9 +83,9 @@ h2 {
 /* ===== 4. Komponen ===== */
 .tombol {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
+  padding: var(--jarak-form) var(--jarak-sedang);
   background: var(--warna-utama);
-  color: #fff;
+  color: var(--warna-putih);
   border-radius: var(--radius);
   transition:
     transform 0.2s ease,
@@ -81,7 +100,7 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fff;
+  background: var(--warna-putih);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
 }
 
@@ -91,16 +110,16 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--jarak);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: var(--jarak-navbar);
+  padding-bottom: var(--jarak-navbar);
 }
 .logo {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: var(--jarak-sedang);
 }
 .menu {
   display: flex;
-  gap: 1.25rem;
+  gap: var(--jarak-sedang);
   list-style: none;
 }
 .menu a.aktif {
@@ -111,7 +130,7 @@ h2 {
 @media (max-width: 767px) {
   .menu {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--jarak-kecil);
     width: 100%;
   }
 }
@@ -119,12 +138,12 @@ h2 {
 .grid-kartu {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: var(--jarak-sedang);
 }
 .kartu {
-  background: #fff;
-  padding: 1.5rem;
-  border: 1px solid #e5e7eb;
+  background: var(--warna-putih);
+  padding: var(--jarak-kartu);
+  border: 1px solid var(--warna-batas);
   border-radius: var(--radius);
   transition:
     transform 0.2s ease,
@@ -138,7 +157,7 @@ h2 {
 .galeri {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: var(--jarak);
 }
 .galeri img {
   width: 100%;
@@ -156,9 +175,12 @@ h2 {
 
 footer {
   background: var(--warna-gelap);
-  color: #fff;
+  color: var(--warna-putih);
   text-align: center;
-  padding: 2rem 0;
+  padding: var(--jarak-footer) var(--jarak);
+}
+footer a {
+  color: var(--warna-putih);
 }
 
 .hero {
@@ -166,10 +188,14 @@ footer {
   place-items: center;
   min-height: 70vh;
   text-align: center;
-  background: linear-gradient(135deg, var(--warna-utama), #6610f2);
-  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--warna-utama),
+    var(--warna-sekunder)
+  );
+  color: var(--warna-putih);
 }
-.hero h2 {
+.hero h1 {
   font-size: clamp(1.75rem, 5vw, 3rem);
 }
 
@@ -180,14 +206,14 @@ form p {
 label {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--jarak-mini);
 }
 input,
 select,
 textarea {
   width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid #d1d5db;
+  padding: var(--jarak-form) var(--jarak-navbar);
+  border: 1px solid var(--warna-input);
   border-radius: var(--radius);
   font: inherit;
 }
@@ -198,11 +224,11 @@ textarea:focus {
   border-color: var(--warna-utama);
 }
 button {
-  padding: 0.6rem 1.2rem;
+  padding: var(--jarak-form) var(--jarak-sedang);
   border: 0;
   border-radius: var(--radius);
   background: var(--warna-utama);
-  color: #fff;
+  color: var(--warna-putih);
   font: inherit;
   cursor: pointer;
 }
@@ -210,20 +236,28 @@ button {
 /* Tabel */
 .tabel-bungkus {
   overflow-x: auto;
+  border: 1px solid var(--warna-batas);
+  border-radius: var(--radius);
 }
 table {
   width: 100%;
+  min-width: 40rem;
   border-collapse: collapse;
 }
 th,
 td {
   padding: 0.75rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--warna-batas);
   text-align: left;
 }
 thead th {
-  background: #eef2ff;
+  background: var(--warna-header-tabel);
+}
+caption {
+  padding: var(--jarak-kecil);
+  color: var(--warna-abu);
+  text-align: left;
 }
 tbody tr:nth-child(even) {
-  background: #f3f4f6;
+  background: var(--warna-baris-tabel);
 }

@@ -1,19 +1,39 @@
-# Proyek 1: Landing Page
+# Proyek 1: Landing Page Profil
 
-Landing page sederhana yang dibuat menggunakan HTML. Proyek ini berisi halaman
-beranda, tentang, dan kontak dengan navigasi antarhalaman.
+Landing page profil pribadi yang menampilkan informasi, keahlian, layanan, dan
+galeri. Tampilannya menggunakan nuansa biru dan ungu dengan tata letak
+responsif untuk desktop maupun ponsel.
 
-## Isi Proyek
+## Demo
 
-- `index.html` — halaman beranda dan bagian artikel.
-- `tentang.html` — informasi singkat tentang peserta.
-- `kontak.html` — alamat email untuk menghubungi peserta.
+Buka [halaman demo](./profil.html) di browser.
 
-## Cara Menjalankan
+## Fitur
 
-Buka file `index.html` di browser. Gunakan menu navigasi untuk berpindah ke
-halaman **Tentang** atau **Kontak**.
+- Navigasi ke bagian Tentang, Layanan, Galeri, dan Kontak.
+- Bagian profil dan daftar keahlian.
+- Kartu layanan dan galeri foto.
+- Tabel jadwal kegiatan.
+- Formulir kontak.
+- Tata letak responsif untuk desktop dan ponsel.
 
 ## Teknologi
 
-- HTML
+- HTML5
+- CSS3
+
+## Tangkapan Layar
+
+### Desktop
+
+![Tampilan landing page di desktop](./img/screenshot-desktop.png)
+
+### Ponsel
+
+![Tampilan landing page di ponsel](./img/ukuranhp.png)
+
+### tautan GitHub Pages 
+https://muhsantri26.github.io/portofolio-junior-web/hari-03-css/profil.html
+
+### nilai 
+![Tampilan landing page di ponsel](./img/image.png)
