@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modul ES</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+
+      label,
+      input,
+      button {
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      input {
+        width: 300px;
+        padding: 8px;
+      }
+
+      button {
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+
+      #hasil {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lab 4 - Modul ES</h1>
+
+    <label for="nilai">Nilai (pisahkan dengan koma)</label>
+    <input id="nilai" type="text" value="80, 90, 75, 100" />
+    <button id="hitung" type="button">Hitung</button>
+
+    <div id="hasil"></div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

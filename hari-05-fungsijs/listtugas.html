@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>counter dan todo list</title>
+  </head>
+  <body>
+    <h2 id="angka">0</h2>
+    <button id="tambah">Tambah</button>
+    <button id="kurang">Kurang</button>
+    <button id="reset">Reset</button>
+
+    <form id="form-tugas">
+      <label for="teks-tugas">Tugas baru</label>
+      <input id="teks-tugas" required />
+      <button type="submit">Tambah</button>
+    </form>
+    <ul id="daftar-tugas"></ul>
+
+    <script>
+      let hitung = 0;
+      const angka = document.getElementById("angka");
+      const perbarui = () => {
+        angka.textContent = hitung;
+      };
+
+      document.getElementById("tambah").addEventListener("click", () => {
+        hitung++;
+        perbarui();
+      });
+      document.getElementById("kurang").addEventListener("click", () => {
+        hitung--;
+        perbarui();
+      });
+      document.getElementById("reset").addEventListener("click", () => {
+        hitung = 0;
+        perbarui();
+      });
+
+      const form = document.getElementById("form-tugas");
+      const daftar = document.getElementById("daftar-tugas");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const teks = document.getElementById("teks-tugas").value.trim();
+        if (teks === "") return;
+
+        const item = document.createElement("li");
+        item.textContent = teks + " ";
+        const hapus = document.createElement("button");
+        hapus.type = "button";
+        hapus.textContent = "Hapus";
+        hapus.addEventListener("click", () => item.remove());
+        item.append(hapus);
+        daftar.append(item);
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
