@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Debugging DOM</title>
+  </head>
+  <body>
+    <h1>Latihan Debugging DOM</h1>
+    <p>Kirim pesan dan coba tombol contoh di bawah.</p>
+
+    <form id="form-pesan">
+      <label for="pesan">Pesan</label>
+      <input id="pesan" name="pesan" type="text" />
+      <button id="tombol" type="submit">Kirim</button>
+    </form>
+
+    <div id="hasil"></div>
+
+    <h2>Tombol contoh</h2>
+    <button class="tombol-contoh" type="button">Contoh 1</button>
+    <button class="tombol-contoh" type="button">Contoh 2</button>
+    <button class="tombol-contoh" type="button">Contoh 3</button>
+
+    <script>
+      const tombolKirim = document.getElementById('tombol');
+      tombolKirim.addEventListener('click', () => {
+        console.log('Tombol kirim diklik');
+      });
+
+      const form = document.getElementById('form-pesan');
+      const hasil = document.getElementById('hasil');
+      const inputPesan = document.getElementById('pesan');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        hasil.textContent = inputPesan.value;
+      });
+
+      const tombolContoh = document.querySelectorAll('.tombol-contoh');
+      for (let i = 0; i < tombolContoh.length; i++) {
+        tombolContoh[i].addEventListener('click', function () {
+          hasil.textContent = `Kamu memilih tombol ${i + 1}`;
+        });
+      }
+    </script>
+  </body>
+</html>
