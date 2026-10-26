@@ -62,3 +62,14 @@ Tidak diperlukan instalasi dependensi.
 - HTML5
 - CSS3
 - JavaScript ES Modules
+
+## Tangkapan Layar
+
+### Kalkulator
+
+![Tampilan aplikasi kalkulator](./img/image.png)
+
+### Validator Formulir
+
+![Tampilan validator formulir](./img/vali1.png)
+![Tampilan validator formulir](./img/vali2.png)
