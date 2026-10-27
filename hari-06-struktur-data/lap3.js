@@ -14,26 +14,29 @@ export function kurungSeimbang(teks) {
   return tumpukan.isEmpty();
 }
 
-// uji dengan push 3 elemen, peek, pop samapai ksoosng, lalu pop pada stack kosong()
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
+// Uji dengan push tiga elemen, peek, pop sampai kosong, lalu pop pada stack kosong (tidak boleh error). 
+// const stack = new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
 
 
-console.log(stack.peek());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
+// console.log(stack.peek());
+// console.log(stack.pop());
+// console.log(stack.pop());
+// console.log(stack.pop());
+// console.log(stack.pop());
 
-console.log(kurungSeimbang("(a+b)*[c-d]")); // true
-console.log(kurungSeimbang("(a+b]"));// false
-console.log(kurungSeimbang("((a)"));
-console.log(kurungSeimbang(""));
+
+// validasi kurung seimbang
+// console.log(kurungSeimbang("(a+b)*[c-d]")); // true
+// console.log(kurungSeimbang("(a+b]"));// false
+// console.log(kurungSeimbang("((a)"));
+// console.log(kurungSeimbang(""));
 
 
 // balik sebuah string memakai stack dan perikas palingdrom
+const stack = new Stack();
 stack.clear();
 const str = 'katak';
 const reversedStr = str.split('').reduce((acc, char) =>{
