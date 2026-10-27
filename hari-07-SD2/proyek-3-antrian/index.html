@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Simulator antrean pasien dan editor catatan dengan undo dan redo."
+    />
+    <title>Proyek 3 - Simulator Antrean Klinik</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">SIMULATOR KLINIK</p>
+          <h1>Antrean &amp; Catatan Pasien</h1>
+          <p class="page-description">
+            Kelola antrean loket dan catat informasi penting dengan aman.
+          </p>
+        </div>
+        <span class="open-status"
+          ><span aria-hidden="true"></span> Layanan aktif</span
+        >
+      </header>
+
+      <div class="workspace">
+        <section class="panel queue-panel" aria-labelledby="queue-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">LOKET PENDAFTARAN</p>
+              <h2 id="queue-title">Antrean pasien</h2>
+            </div>
+            <span class="panel-icon" aria-hidden="true">01</span>
+          </div>
+
+          <div class="called-card" aria-live="polite">
+            <p class="card-label">SEDANG DIPANGGIL</p>
+            <p class="called-number" id="nomor-dipanggil">—</p>
+            <p class="called-hint" id="pesan-panggilan">
+              Belum ada pasien yang dipanggil
+            </p>
+          </div>
+
+          <div class="queue-summary">
+            <div>
+              <p class="card-label">MENUNGGU</p>
+              <p class="queue-count">
+                <span id="jumlah-antrean">0</span> <span>pasien</span>
+              </p>
+            </div>
+            <span class="queue-icon" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="button-row">
+            <button
+              class="button button-primary"
+              id="ambil-nomor"
+              type="button"
+            >
+              <span aria-hidden="true">＋</span> Ambil nomor
+            </button>
+            <button
+              class="button button-secondary"
+              id="panggil-berikutnya"
+              type="button"
+            >
+              Panggil berikutnya
+            </button>
+          </div>
+
+          <div class="section-divider"></div>
+          <div class="list-heading">
+            <h3>Daftar menunggu</h3>
+            <span class="small-count" id="label-jumlah-antrean">0 nomor</span>
+          </div>
+          <ol class="queue-list" id="daftar-antrean" aria-live="polite"></ol>
+          <p class="empty-state" id="antrean-kosong">
+            Belum ada pasien dalam antrean.
+          </p>
+
+          <div class="history-block">
+            <div class="list-heading">
+              <h3>Terakhir dipanggil</h3>
+              <span class="small-count">maks. 5</span>
+            </div>
+            <ol
+              class="called-history"
+              id="riwayat-panggilan"
+              aria-live="polite"
+            ></ol>
+            <p class="history-empty" id="riwayat-kosong">
+              Riwayat panggilan akan tampil di sini.
+            </p>
+          </div>
+
+          <button class="button button-reset" id="reset-antrean" type="button">
+            Reset antrean
+          </button>
+        </section>
+
+        <section class="panel notes-panel" aria-labelledby="notes-title">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">CATATAN LOKET</p>
+              <h2 id="notes-title">Editor catatan</h2>
+            </div>
+            <span class="panel-icon" aria-hidden="true">02</span>
+          </div>
+
+          <p class="notes-description">
+            Tulis catatan singkat. Perubahan bisa dibatalkan atau dikembalikan.
+          </p>
+
+          <label class="sr-only" for="catatan">Isi catatan</label>
+          <textarea
+            id="catatan"
+            class="notes-input"
+            rows="12"
+            placeholder="Contoh: Pasien diminta membawa hasil pemeriksaan sebelumnya..."
+            spellcheck="true"
+          ></textarea>
+
+          <div class="editor-toolbar">
+            <div class="history-count" aria-live="polite">
+              <span class="history-dot" aria-hidden="true"></span>
+              Riwayat <strong id="jumlah-riwayat">0</strong> / 50 langkah
+            </div>
+            <div class="editor-actions">
+              <button
+                class="button button-tool"
+                id="undo"
+                type="button"
+                disabled
+              >
+                <span aria-hidden="true">↶</span> Undo
+              </button>
+              <button
+                class="button button-tool"
+                id="redo"
+                type="button"
+                disabled
+              >
+                <span aria-hidden="true">↷</span> Redo
+              </button>
+            </div>
+          </div>
+
+          <p class="storage-message" id="pesan-penyimpanan" role="status">
+            Catatan tersimpan otomatis di perangkat ini.
+          </p>
+          <div class="keyboard-hint">
+            Pintasan: <kbd>Ctrl</kbd> + <kbd>Z</kbd> untuk undo,
+            <kbd>Ctrl</kbd> + <kbd>Y</kbd> untuk redo
+          </div>
+        </section>
+      </div>
+
+      <footer class="page-footer">
+        <span>Proyek 3 · Struktur data Hari 6–7</span>
+        <span>Data catatan disimpan di perangkat ini</span>
+      </footer>
+    </main>
+  </body>
+</html>
