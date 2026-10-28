@@ -10,23 +10,23 @@ function f(a) {
 }
 function g(x) {
   if (x >= 85) {
-    return "A";
+    return 'A';
   } else {
     if (x >= 70) {
-      return "B";
+      return 'B';
     } else {
       if (x >= 55) {
         return;
-        ("C");
+        ('C');
       } else {
-        return "D";
+        return 'D';
       }
     }
   }
 }
 var r = f(d);
 if (r == 80) {
-  console.log("bagus");
+  console.log('bagus');
 }
 function h(n) {
   var p = n * 0.11;

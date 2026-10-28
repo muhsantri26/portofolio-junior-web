@@ -1,7 +1,7 @@
-import { AntrianKlinik } from "./antrian.js";
-import { RiwayatEditor } from "./riwayat.js";
+import { AntrianKlinik } from './antrian.js';
+import { RiwayatEditor } from './riwayat.js';
 
-const KUNCI_CATATAN = "proyek-3-antrian-catatan";
+const KUNCI_CATATAN = 'proyek-3-antrian-catatan';
 
 function ambilElemen(id) {
   const elemen = document.getElementById(id);
@@ -12,47 +12,49 @@ function ambilElemen(id) {
 }
 
 const antrian = new AntrianKlinik();
-const nomorDipanggil = ambilElemen("nomor-dipanggil");
-const pesanPanggilan = ambilElemen("pesan-panggilan");
-const jumlahAntrean = ambilElemen("jumlah-antrean");
-const labelJumlahAntrean = ambilElemen("label-jumlah-antrean");
-const daftarAntrean = ambilElemen("daftar-antrean");
-const antreanKosong = ambilElemen("antrean-kosong");
-const riwayatPanggilan = ambilElemen("riwayat-panggilan");
-const riwayatKosong = ambilElemen("riwayat-kosong");
-const catatan = ambilElemen("catatan");
-const tombolUndo = ambilElemen("undo");
-const tombolRedo = ambilElemen("redo");
-const jumlahRiwayat = ambilElemen("jumlah-riwayat");
-const pesanPenyimpanan = ambilElemen("pesan-penyimpanan");
+const nomorDipanggil = ambilElemen('nomor-dipanggil');
+const pesanPanggilan = ambilElemen('pesan-panggilan');
+const jumlahAntrean = ambilElemen('jumlah-antrean');
+const labelJumlahAntrean = ambilElemen('label-jumlah-antrean');
+const daftarAntrean = ambilElemen('daftar-antrean');
+const antreanKosong = ambilElemen('antrean-kosong');
+const riwayatPanggilan = ambilElemen('riwayat-panggilan');
+const riwayatKosong = ambilElemen('riwayat-kosong');
+const catatan = ambilElemen('catatan');
+const tombolUndo = ambilElemen('undo');
+const tombolRedo = ambilElemen('redo');
+const jumlahRiwayat = ambilElemen('jumlah-riwayat');
+const pesanPenyimpanan = ambilElemen('pesan-penyimpanan');
 const catatanAwal = muatCatatan();
 const editor = new RiwayatEditor(catatanAwal);
 
 function muatCatatan() {
   try {
-    return window.localStorage.getItem(KUNCI_CATATAN) ?? "";
+    return window.localStorage.getItem(KUNCI_CATATAN) ?? '';
   } catch (error) {
     tampilkanPesanPenyimpanan(
       `Catatan tersimpan untuk sesi ini saja: ${pesanError(error)}`,
       true,
     );
-    return "";
+    return '';
   }
 }
 
 function pesanError(error) {
-  return error instanceof Error ? error.message : "penyimpanan browser tidak tersedia";
+  return error instanceof Error
+    ? error.message
+    : 'penyimpanan browser tidak tersedia';
 }
 
 function tampilkanPesanPenyimpanan(pesan, gagal = false) {
   pesanPenyimpanan.textContent = pesan;
-  pesanPenyimpanan.classList.toggle("is-error", gagal);
+  pesanPenyimpanan.classList.toggle('is-error', gagal);
 }
 
 function simpanCatatan() {
   try {
     window.localStorage.setItem(KUNCI_CATATAN, catatan.value);
-    tampilkanPesanPenyimpanan("Catatan tersimpan otomatis di perangkat ini.");
+    tampilkanPesanPenyimpanan('Catatan tersimpan otomatis di perangkat ini.');
   } catch (error) {
     tampilkanPesanPenyimpanan(
       `Catatan belum tersimpan di perangkat: ${pesanError(error)}`,
@@ -67,7 +69,7 @@ function tampilkanAntrean() {
   labelJumlahAntrean.textContent = `${daftar.length} nomor`;
   daftarAntrean.replaceChildren(
     ...daftar.map((nomor) => {
-      const item = document.createElement("li");
+      const item = document.createElement('li');
       item.textContent = nomor;
       return item;
     }),
@@ -80,7 +82,7 @@ function tampilkanRiwayatPanggilan() {
   const daftar = antrian.getRiwayatDipanggil();
   riwayatPanggilan.replaceChildren(
     ...daftar.map((nomor) => {
-      const item = document.createElement("li");
+      const item = document.createElement('li');
       item.textContent = nomor;
       return item;
     }),
@@ -98,14 +100,15 @@ function tampilkanEditor() {
 function panggilBerikutnya() {
   const nomor = antrian.panggilBerikutnya();
   if (nomor === undefined) {
-    nomorDipanggil.textContent = "—";
-    pesanPanggilan.textContent = "Antrean kosong. Belum ada pasien untuk dipanggil.";
+    nomorDipanggil.textContent = '—';
+    pesanPanggilan.textContent =
+      'Antrean kosong. Belum ada pasien untuk dipanggil.';
     tampilkanAntrean();
     return;
   }
 
   nomorDipanggil.textContent = nomor;
-  pesanPanggilan.textContent = "Silakan menuju loket pendaftaran.";
+  pesanPanggilan.textContent = 'Silakan menuju loket pendaftaran.';
   tampilkanAntrean();
   tampilkanRiwayatPanggilan();
 }
@@ -117,45 +120,45 @@ function ubahCatatan(teks) {
 }
 
 catatan.value = catatanAwal;
-ambilElemen("ambil-nomor").addEventListener("click", () => {
+ambilElemen('ambil-nomor').addEventListener('click', () => {
   antrian.ambilNomor();
   tampilkanAntrean();
 });
 
-ambilElemen("panggil-berikutnya").addEventListener("click", panggilBerikutnya);
+ambilElemen('panggil-berikutnya').addEventListener('click', panggilBerikutnya);
 
-ambilElemen("reset-antrean").addEventListener("click", () => {
+ambilElemen('reset-antrean').addEventListener('click', () => {
   antrian.reset();
-  nomorDipanggil.textContent = "—";
-  pesanPanggilan.textContent = "Antrean sudah direset.";
+  nomorDipanggil.textContent = '—';
+  pesanPanggilan.textContent = 'Antrean sudah direset.';
   tampilkanAntrean();
   tampilkanRiwayatPanggilan();
 });
 
-catatan.addEventListener("input", () => {
+catatan.addEventListener('input', () => {
   editor.catatPerubahan(catatan.value);
   simpanCatatan();
   tampilkanEditor();
 });
 
-tombolUndo.addEventListener("click", () => {
+tombolUndo.addEventListener('click', () => {
   const teks = editor.undo();
   if (teks !== undefined) ubahCatatan(teks);
 });
 
-tombolRedo.addEventListener("click", () => {
+tombolRedo.addEventListener('click', () => {
   const teks = editor.redo();
   if (teks !== undefined) ubahCatatan(teks);
 });
 
-catatan.addEventListener("keydown", (event) => {
+catatan.addEventListener('keydown', (event) => {
   if (!event.ctrlKey || event.altKey || event.metaKey) return;
 
   const tombol = event.key.toLowerCase();
-  if (tombol === "z" && !event.shiftKey) {
+  if (tombol === 'z' && !event.shiftKey) {
     event.preventDefault();
     tombolUndo.click();
-  } else if (tombol === "y" || (tombol === "z" && event.shiftKey)) {
+  } else if (tombol === 'y' || (tombol === 'z' && event.shiftKey)) {
     event.preventDefault();
     tombolRedo.click();
   }

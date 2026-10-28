@@ -1,6 +1,6 @@
-import { LinkedQueue } from "./structures.js";
+import { LinkedQueue } from './structures.js';
 
-export const AWALAN_NOMOR = "A";
+export const AWALAN_NOMOR = 'A';
 export const MAKS_RIWAYAT = 50;
 const JUMLAH_RIWAYAT_PANGGILAN = 5;
 
@@ -11,7 +11,7 @@ export class AntrianKlinik {
 
   ambilNomor() {
     this.#nomorTerakhir++;
-    const nomor = `${AWALAN_NOMOR}${String(this.#nomorTerakhir).padStart(3, "0")}`;
+    const nomor = `${AWALAN_NOMOR}${String(this.#nomorTerakhir).padStart(3, '0')}`;
     this.#antrian.enqueue(nomor);
     return nomor;
   }

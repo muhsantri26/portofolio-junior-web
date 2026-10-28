@@ -22,11 +22,11 @@ JavaScript menggunakan ES modules, jadi jalankan lewat server lokal (misalnya XA
 
 ## Struktur data dan alasan pemilihan
 
-| Fitur | Struktur data | Alasan |
-|---|---|---|
-| Antrean pasien | `LinkedQueue`, dibangun dari `LinkedList` | Antrean memakai urutan FIFO: pasien yang lebih dulu mengambil nomor dipanggil lebih dulu. Tambah di belakang dan hapus dari depan dapat dilakukan dalam O(1), tanpa menggeser seluruh elemen seperti pada array. |
-| Undo dan Redo | Dua `Stack` | Riwayat perubahan mengikuti prinsip LIFO: perubahan terbaru dibatalkan lebih dulu. Undo memindahkan keadaan ke stack Redo; perubahan baru menghapus riwayat Redo yang sudah tidak berlaku. |
-| Lima panggilan terakhir | Array kecil | Hanya lima nomor terbaru yang perlu ditampilkan. Array mudah dipotong menjadi lima data dan tidak memerlukan struktur tambahan. |
+| Fitur                   | Struktur data                             | Alasan                                                                                                                                                                                                           |
+| ----------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Antrean pasien          | `LinkedQueue`, dibangun dari `LinkedList` | Antrean memakai urutan FIFO: pasien yang lebih dulu mengambil nomor dipanggil lebih dulu. Tambah di belakang dan hapus dari depan dapat dilakukan dalam O(1), tanpa menggeser seluruh elemen seperti pada array. |
+| Undo dan Redo           | Dua `Stack`                               | Riwayat perubahan mengikuti prinsip LIFO: perubahan terbaru dibatalkan lebih dulu. Undo memindahkan keadaan ke stack Redo; perubahan baru menghapus riwayat Redo yang sudah tidak berlaku.                       |
+| Lima panggilan terakhir | Array kecil                               | Hanya lima nomor terbaru yang perlu ditampilkan. Array mudah dipotong menjadi lima data dan tidak memerlukan struktur tambahan.                                                                                  |
 
 Detail internal `Stack`, `Queue`, `LinkedList`, dan `LinkedQueue` disembunyikan menggunakan private field. File `js/structures.js` hanya berisi struktur data dan tidak mengakses DOM.
 

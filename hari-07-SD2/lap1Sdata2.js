@@ -1,5 +1,5 @@
-// Uji LinkedList: addFirst, addLast, removeFirst, find, toArray, serta kasus kosong dan satu elemen. 
-import { LinkedList, Queue, LinkedQueue } from "./structures.js";
+// Uji LinkedList: addFirst, addLast, removeFirst, find, toArray, serta kasus kosong dan satu elemen.
+import { LinkedList, Queue, LinkedQueue } from './structures.js';
 
 const linkedList = new LinkedList();
 
@@ -35,29 +35,23 @@ const linkedList = new LinkedList();
 // console.log("Array:", linkedList.toArray());
 // console.log("Size:", linkedList.size());
 
-// Bandingkan kecepatan Queue array (versi shift) dengan LinkedQueue untuk 100.000 elemen 
-// memakai console.time, catat pada tabel. 
+// Bandingkan kecepatan Queue array (versi shift) dengan LinkedQueue untuk 100.000 elemen
+// memakai console.time, catat pada tabel.
 const QueueArray = new Queue();
 const linkedQueue = new LinkedQueue();
 const numElements = 100000;
-for (let i = 0; i < numElements; i++){
-    QueueArray.enqueue(i);
-    linkedQueue.enqueue(i);
+for (let i = 0; i < numElements; i++) {
+  QueueArray.enqueue(i);
+  linkedQueue.enqueue(i);
 }
-console.time("Queue Array Dequeue");
-for (let i = 0; i < numElements; i++){
-    QueueArray.dequeue()
+console.time('Queue Array Dequeue');
+for (let i = 0; i < numElements; i++) {
+  QueueArray.dequeue();
 }
-console.timeEnd("Queue Array Dequeue");
+console.timeEnd('Queue Array Dequeue');
 
-console.time("LinkedQueue Dequeue");
-for (let i = 0; i < numElements; i++){
-    linkedQueue.dequeue();
+console.time('LinkedQueue Dequeue');
+for (let i = 0; i < numElements; i++) {
+  linkedQueue.dequeue();
 }
-console.timeEnd("LinkedQueue Dequeue")
-
-
-
-
-
-
+console.timeEnd('LinkedQueue Dequeue');

@@ -124,21 +124,21 @@ const data10000 = Array.from({ length: 10000 }, () =>
 const data100000 = Array.from({ length: 100000 }, () =>
   Math.floor(Math.random() * 100000),
 );
-console.time("Bubble Sort 10k");
+console.time('Bubble Sort 10k');
 bubbleSort(data10000);
-console.timeEnd("Bubble Sort 10k");
-console.time("Merge Sort 10k");
+console.timeEnd('Bubble Sort 10k');
+console.time('Merge Sort 10k');
 mergeSort(data10000);
-console.timeEnd("Merge Sort 10k");
-console.time("Array.sort 10k");
+console.timeEnd('Merge Sort 10k');
+console.time('Array.sort 10k');
 data10000.slice().sort((a, b) => a - b);
-console.timeEnd("Array.sort 10k");
-console.time("Bubble Sort 100k");
+console.timeEnd('Array.sort 10k');
+console.time('Bubble Sort 100k');
 bubbleSort(data100000);
-console.timeEnd("Bubble Sort 100k");
-console.time("Merge Sort 100k");
+console.timeEnd('Bubble Sort 100k');
+console.time('Merge Sort 100k');
 mergeSort(data100000);
-console.timeEnd("Merge Sort 100k");
-console.time("Array.sort 100k");
+console.timeEnd('Merge Sort 100k');
+console.time('Array.sort 100k');
 data100000.slice().sort((a, b) => a - b);
-console.timeEnd("Array.sort 100k");
+console.timeEnd('Array.sort 100k');

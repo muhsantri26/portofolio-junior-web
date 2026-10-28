@@ -1,12 +1,12 @@
-import { Stack } from "./structures.js";
-import { MAKS_RIWAYAT } from "./antrian.js";
+import { Stack } from './structures.js';
+import { MAKS_RIWAYAT } from './antrian.js';
 
 export class RiwayatEditor {
   #undoStack = new Stack();
   #redoStack = new Stack();
   #teksSaatIni;
 
-  constructor(teksAwal = "") {
+  constructor(teksAwal = '') {
     this.#teksSaatIni = teksAwal;
   }
 
