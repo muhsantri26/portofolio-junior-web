@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nama": "jhon",
+        "email": "muh.santri26@gmail.com",
+        "pesan": "dfdf",
+        "waktu": "2026-10-28 09:57:04"
+    },
+    {
+        "id": 2,
+        "nama": "hanif",
+        "email": "muh.santri26@gmail.com",
+        "pesan": "randomfdsjfkjasdkfalsdkfh",
+        "waktu": "2026-10-28 09:57:35"
+    },
+    {
+        "id": 3,
+        "nama": "jono",
+        "email": "muh.santri26@gmail.com",
+        "pesan": "dfadsfadf",
+        "waktu": "2026-10-28 09:58:40"
+    },
+    {
+        "id": 4,
+        "nama": "reno",
+        "email": "wil.media123@gmail.com",
+        "pesan": "fadfadfadsf",
+        "waktu": "2026-10-28 09:59:16"
+    },
+    {
+        "id": 5,
+        "nama": "tono",
+        "email": "muh.santri26@gmail.com",
+        "pesan": "fasdfasdfasdfasd",
+        "waktu": "2026-10-28 10:00:07"
+    },
+    {
+        "id": 6,
+        "nama": "tono",
+        "email": "muh.santri26@gmail.com",
+        "pesan": "fasdfasdfasdfasd",
+        "waktu": "2026-10-28 10:00:39"
+    }
+]
