@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 function hitungBmi(float $berat, float $tinggiCm): float
@@ -17,7 +16,6 @@ function kategoriBmi(float $bmi): string
         default => 'Obesitas',
     };
 }
-
 
 $galat = [];
 $hasil = null;
@@ -39,12 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang='id'>
-
 <head>
     <meta charset='UTF-8'>
     <title>Kalkulator BMI</title>
 </head>
-
 <body>
     <h1>Kalkulator BMI</h1>
     <form method='post'>
@@ -74,5 +70,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Hasil BMI: <strong><?= htmlspecialchars($hasil) ?></strong></p>
     <?php endif; ?>
 </body>
-
 </html>

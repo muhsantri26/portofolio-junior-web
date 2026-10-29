@@ -6,21 +6,22 @@ $nama = 'dgkasd';
 $umur = 23;
 $status = 'siswa';
 
-echo 'Halo, ' . $nama . '!';
-echo 'Umur: ' . $umur;
+echo 'Halo, ' . $nama . '<br>';
+echo 'Umur: ' . $umur . '<br>';
 echo 'Status: ' . $status;
 // var_dump($nama, $umur, $status);
 
 // Buat tabel perkalian 1 sampai 10 dalam <table> dengan for bersarang. 
-// echo '<table border="1">';
-// for ($i = 1; $i <= 10; $i++) {
-//     echo '<tr>';
-//     for ($j = 1; $j <= 10; $j++) {
-//         echo '<td>' . ($i * $j) . '<td>';
-//     }
-//     echo '</tr>';
-// }
-// echo '</table>';
+echo '<h3> tabel perkalian 1 sampai 10</h3>';
+echo '<table border="1">';
+for ($i = 1; $i <= 10; $i++) {
+    echo '<tr>';
+    for ($j = 1; $j <= 10; $j++) {
+        echo '<td>' . ($i * $j) . '<td>';
+    }
+    echo '</tr>';
+}
+echo '</table>';
 
 // Kerjakan: bilangan ganjil/genap 1-20, , dan 
 echo '<h3> Bilangan ganjil genap</h3>';
@@ -65,8 +66,8 @@ echo "<p>Grade: $grade</p>";
 // memakai array ['Minggu', 'Senin', ...] dan date('w'). 
 $hari = ['Minggu', 'Senin','Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $hariIni = date('w');
-echo '<h3>Kalender sederhana';
-echo '<p>hari dalam angka (aturan fungsi date php' . $hariIni. '</p>';
+echo '<h3>Kalender sederhana</h3>';
+echo '<p>hari dalam angka ' . $hariIni . ' (aturan fungsi date php)</p>';
 echo '<p>hari ini adalah ' . $hari[$hariIni]. '</p>';
 ?>
 <p>Waktu server: <?= date('d-m-Y H:i') ?></p>
