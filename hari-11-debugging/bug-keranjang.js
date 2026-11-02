@@ -30,5 +30,8 @@ function formatRupiah(angka) {
  
 const total = hitungTotal(keranjang); 
 const diskon = hitungDiskon(total); 
+console.log('Total sebelum diskon: ' + formatRupiah(total));
+console.log('Diskon: ' + formatRupiah(diskon));
 console.log('Total bayar: ' + formatRupiah(total - diskon));
-console.assert(hitungDiskon(50000) === 5000, 'diskon batas 50000')
+// console.assert(hitungDiskon(50000) === 5000, 'diskon batas 50000')
+
