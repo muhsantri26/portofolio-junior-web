@@ -13,23 +13,24 @@ require __DIR__ . '/../templates/header.php';
         <p class='lead'>Bersiaplah untuk meningkatkan skill digital dengan kelas yang terstruktur, mentor berpengalaman, dan jadwal yang fleksibel.</p>
         <div class='d-flex gap-3 flex-wrap'>
             <a href='tambah.php' class='btn btn-primary'>Daftar Sekarang</a>
+            <a href='login.php' class='btn btn-outline-primary'>Login Admin</a>
         </div>
     </div>
-    <!-- <div class='col-lg-5'>
+    <div class='col-lg-5'>
         <div class='card shadow-sm'>
             <div class='card-body'>
                 <h3 class='h5'>Kelas tersedia</h3>
                 <ul class='list-group list-group-flush'>
                     <?php foreach (daftarKelas(getConnection()) as $kelas): ?>
                         <li class='list-group-item d-flex justify-content-between'>
-                            <span><?= e($kelas['nama_kelas']) ?></span>
-                            <span class='badge text-bg-light'>Kuota <?= (int) $kelas['kuota'] ?></span>
+                            <span><?= e($kelas['nama_kelas'] ?? 'Kelas') ?></span>
+                            <span class='badge text-bg-light'>Kuota <?= (int) ($kelas['kuota'] ?? 0) ?></span>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
 
 <?php require __DIR__ . '/../templates/footer.php'; ?>

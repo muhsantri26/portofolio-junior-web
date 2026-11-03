@@ -3,8 +3,7 @@
 declare(strict_types=1);
 function daftarKelas(PDO $pdo): array
 {
-    return $pdo->query('SELECT id, nama_kelas FROM kelas ORDER BY 
-nama_kelas')->fetchAll();
+    return $pdo->query('SELECT id, nama_kelas, kuota FROM kelas ORDER BY nama_kelas')->fetchAll();
 }
 function hitungPendaftar(PDO $pdo, string $kata): int
 {
