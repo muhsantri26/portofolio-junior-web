@@ -97,12 +97,39 @@ function ambilAdminById(PDO $pdo, int $id): ?array
     return $baris === false ? null : $baris;
 }
 
-function ambilSemuaPendaftar(PDO $pdo): array
+function ambilSemuaPendaftar(PDO $pdo, string $kata = '', int $batas = 0, int $offset = 0): array
 {
-    $sql = 'SELECT p.id, p.nama, p.email, p.no_hp, p.tgl_daftar, k.nama_kelas 
-FROM pendaftar p JOIN kelas k ON k.id = p.kelas_id 
-ORDER BY p.id DESC';
-    return $pdo->query($sql)->fetchAll();
+    $where = '';
+    $params = [];
+
+    if ($kata !== '') {
+        $where = ' WHERE p.nama LIKE :kata OR p.email LIKE :kata OR p.no_hp LIKE :kata';
+        $params['kata'] = '%' . $kata . '%';
+    }
+
+    $sql = 'SELECT p.id, p.nama, p.email, p.no_hp, p.tgl_daftar, k.nama_kelas
+            FROM pendaftar p
+            JOIN kelas k ON k.id = p.kelas_id' . $where . '
+            ORDER BY p.id DESC';
+
+    if ($batas > 0) {
+        $sql .= ' LIMIT :batas OFFSET :offset';
+        $stmt = $pdo->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue(':' . $key, $value);
+        }
+        $stmt->bindValue(':batas', $batas, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    $stmt = $pdo->prepare($sql);
+    foreach ($params as $key => $value) {
+        $stmt->bindValue(':' . $key, $value);
+    }
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
 function ambilBuktiPendaftar(PDO $pdo, int $id): ?array 

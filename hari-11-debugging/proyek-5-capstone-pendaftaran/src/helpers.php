@@ -38,9 +38,9 @@ function ambilFlash(): ?string
     return $pesan;
 }
 
-// tambahan 
-function cekLoginAdmin() : void {
-    if(empty($_SESSION['admin_login'])){
+function cekLoginAdmin(): void
+{
+    if (empty($_SESSION['admin_id'])) {
         setFlash('Silahkan login dulu');
         redirect('login.php');
     }
