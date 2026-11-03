@@ -1,0 +1,12 @@
+{
+    "name": "peserta/pendaftaran-pelatihan",
+    "authors": [
+        {
+            "name": "muhsantri26",
+            "email": "muh.santri26@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
+}
