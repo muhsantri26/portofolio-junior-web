@@ -20,10 +20,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lama = $hasil['data'];
     $galat = $hasil['galat'];
     if ($galat === []) {
-        ubahPendaftar($pdo, $id, $lama);
-
-        setFlash('Data berhasil diubah.');
-        redirect('admin.php');
+        try {
+            if (ubahPendaftar($pdo, $id, $lama)) {
+                setFlash('Data berhasil diubah.');
+                redirect('admin.php');
+            }
+            http_response_code(404);
+            exit('Data tidak ditemukan.');
+        } catch (KuotaPenuhException $e) {
+            $galat['kelas_id'] = $e->getMessage();
+        } catch (PDOException $e) {
+            if (!isDuplicateKeyError($e)) {
+                throw $e;
+            }
+            $galat['email'] = 'Email sudah terdaftar.';
+        }
     }
 }
 

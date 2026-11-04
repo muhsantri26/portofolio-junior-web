@@ -19,13 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // setFlash('Pendaftar berhasil ditambahkan.');
         // redirect('index.php');
         try {
-            // untuk menambahkan pendaftar baru dengan pengecekan kuota
-            daftarkanDenganKuota($pdo, $lama);
+            $_SESSION['bukti_pendaftar_id'] = daftarkanDenganKuota($pdo, $lama);
             setFlash('Pendaftaran berhasil. Simpan bukti Anda.');
             redirect('index.php?status=sukses');
         } catch (KuotaPenuhException $e) {
-            // jika kouta kelas sdah penuh, makan akan di lemparkan exception KuotaPenuhException
             $galat['kelas_id'] = $e->getMessage();
+        } catch (PDOException $e) {
+            if (!isDuplicateKeyError($e)) {
+                throw $e;
+            }
+            $galat['email'] = 'Email sudah terdaftar.';
         }
     }
 }

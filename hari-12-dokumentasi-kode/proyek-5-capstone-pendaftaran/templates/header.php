@@ -23,20 +23,20 @@
             </button>
             <div id='menu' class='collapse navbar-collapse'>
                 <ul class='navbar-nav ms-auto'>
-                    <?php
-                    if (empty($_SESSION['admin_id'])) {
-                        echo "<li class='nav-item'><a class='nav-link' href='index.php'>user</a></li>";
-                        echo "<li class='nav-item'><a class='nav-link' href='tambah.php'>Tambah</a></li>";
-                        echo "<li class='nav-item'><a class='nav-link' href='login.php'>login</a></li>";
-                    } else {
-                        echo "<li class='nav-item'><a class='nav-link' href='admin.php'>login as " . e($_SESSION['username']) . "</a></li>";
-                        echo "<li class='nav-item'><a class='nav-link' href='admin.php'>Daftar</a></li>";
-                        echo "<li class='nav-item'><a class='nav-link' href='logout.php'>logout</a></li>";
-                    }
-                    ?>
-
-
-
+                    <?php if (empty($_SESSION['admin_id'])): ?>
+                        <li class='nav-item'><a class='nav-link' href='index.php'>Beranda</a></li>
+                        <li class='nav-item'><a class='nav-link' href='tambah.php'>Daftar</a></li>
+                        <li class='nav-item'><a class='nav-link' href='login.php'>Login admin</a></li>
+                    <?php else: ?>
+                        <li class='nav-item'><a class='nav-link' href='admin.php'>Pendaftar</a></li>
+                        <li class='nav-item'><a class='nav-link' href='kelas.php'>Kelas</a></li>
+                        <li class='nav-item'>
+                            <form method='post' action='logout.php' class='d-inline'>
+                                <input type='hidden' name='csrf' value='<?= e(tokenCsrf()) ?>'>
+                                <button class='nav-link btn btn-link' type='submit'>Logout</button>
+                            </form>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

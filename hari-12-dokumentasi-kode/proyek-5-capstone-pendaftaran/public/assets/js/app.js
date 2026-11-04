@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * @type {HTMLElement | null}
    */
   const flash = document.getElementById("flash");
-  if (flash) {
+  if (flash && window.Swal) {
     /**
      * Konfigurasi notifikasi toast SweetAlert2.
      * @global
@@ -46,6 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     form.addEventListener("submit", (event) => {
       event.preventDefault(); //mencegah form langsung tersubmit
+      if (!window.Swal) {
+        if (window.confirm(`Hapus ${form.dataset.nama}?`)) form.submit();
+        return;
+      }
       Swal.fire({
         title: "Hapus data?",
         text: `Data ${form.dataset.nama} akan dihapus permanen.`,
@@ -74,12 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
      * @global
      * @type {Object}
      */
-    window.jQuery(tabel).DataTable({
+    const dataTable = window.jQuery(tabel).DataTable({
       pageLength: 10,
       language: {
         url: "https://cdn.datatables.net/plug-ins/1.13.8/i18n/id.json",
       },
       columnDefs: [{ orderable: false, targets: -1 }],
     });
+    const filterKelas = document.getElementById("filterKelas");
+    if (filterKelas) {
+      filterKelas.addEventListener("change", () => {
+        const nilai = window.jQuery.fn.dataTable.util.escapeRegex(filterKelas.value);
+        dataTable.column(3).search(nilai ? `^${nilai}$` : "", true, false).draw();
+      });
+    }
   }
 });

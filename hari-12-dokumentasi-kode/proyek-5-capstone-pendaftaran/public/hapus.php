@@ -12,8 +12,12 @@ cekCsrf();
 $id = filter_var($_POST['id'] ?? null, FILTER_VALIDATE_INT, ['options' => 
 ['min_range' => 1]]); 
  
-if ($id !== false && $id !== null) { 
-    hapusPendaftar(getConnection(), $id); 
-    setFlash('Data berhasil dihapus.'); 
-} 
-redirect('admin.php');
+if ($id === false || $id === null) {
+    http_response_code(400);
+    exit('ID pendaftar tidak valid.');
+}
+
+setFlash(hapusPendaftar(getConnection(), $id)
+    ? 'Data berhasil dihapus.'
+    : 'Data tidak ditemukan.');
+redirect('admin.php'); 

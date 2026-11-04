@@ -3,12 +3,11 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../src/bootstrap.php';
 
-$_SESSION = [];
-if (ini_get('session.use_cookies')) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    exit('Metode tidak diizinkan.');
 }
-session_destroy();
 
-setFlash('Anda telah logout.');
+cekCsrf();
+logout();
 redirect('login.php');

@@ -41,10 +41,16 @@ function tokenCsrf(): string
 function cekCsrf(): void
 {
     $kiriman = (string) ($_POST['csrf'] ?? '');
-    if (!hash_equals($_SESSION['csrf'] ?? '', $kiriman)) {
+    $tersimpan = (string) ($_SESSION['csrf'] ?? '');
+    if ($tersimpan === '' || !hash_equals($tersimpan, $kiriman)) {
         http_response_code(403);
         exit('Permintaan tidak valid.');
     }
+}
+
+function isDuplicateKeyError(PDOException $exception): bool
+{
+    return ($exception->errorInfo[1] ?? null) === 1062;
 }
 function setFlash(string $pesan): void
 {
